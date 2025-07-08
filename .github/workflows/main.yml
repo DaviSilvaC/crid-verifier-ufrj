@@ -23,7 +23,6 @@ jobs:
       - name: Install Hardhat
         run: npm install -g hardhat
 
-      # --- CORREÇÃO DE SINTAXE AQUI ---
       - name: Create Hardhat Config
         run: echo "/** @type import('hardhat/config').HardhatUserConfig */ module.exports = { solidity: '0.8.19' };" > hardhat.config.js
 
