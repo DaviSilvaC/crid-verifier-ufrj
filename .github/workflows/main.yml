@@ -24,7 +24,8 @@ jobs:
         run: npm install -g hardhat
 
       - name: Create Hardhat Config
-        run: echo "/** @type import('hardhat/config').HardhatUserConfig */ module.exports = { solidity: '0.8.19' };" > hardhat.config.js
+        run: |
+          echo "module.exports = { solidity: '0.8.19' };" > hardhat.config.js
 
       - name: Install dependencies
         run: pip install eth-brownie
