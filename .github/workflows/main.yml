@@ -1,34 +1,36 @@
-# Nome do nosso workflow, que aparecerá no GitHub
 name: Brownie Tests CI
 
-# Gatilho: define quando o workflow deve rodar. 
-# Neste caso, em todo 'push' para qualquer branch.
 on: [push]
 
 jobs:
-  # Definimos um "trabalho" (job) chamado 'test'. Só teremos um.
   test:
-    # A máquina virtual que o GitHub usará para rodar nosso job. 
-    # 'ubuntu-latest' é uma escolha padrão e confiável.
     runs-on: ubuntu-latest
 
-    # A sequência de passos que o job executará.
     steps:
-      # Passo 1: Baixar o código do seu repositório para a máquina virtual.
       - name: Check out code
         uses: actions/checkout@v4
 
-      # Passo 2: Configurar o ambiente Python na máquina.
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          # Usar a mesma versão estável que configuramos no seu ambiente virtual.
           python-version: '3.11'
 
-      # Passo 3: Instalar o Brownie e suas dependências.
+      # --- PASSO NOVO: Instalar o Node.js ---
+      # O Ganache é um aplicativo Node.js, então precisamos do Node instalado.
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18' # Uma versão estável (LTS) do Node.js
+
+      # --- PASSO NOVO: Instalar o Ganache-CLI ---
+      # Usa o gerenciador de pacotes do Node (npm) para instalar o Ganache globalmente.
+      - name: Install Ganache
+        run: npm install -g ganache-cli
+
+      # Instala o Brownie (sem alteração)
       - name: Install dependencies
         run: pip install eth-brownie
 
-      # Passo 4: O passo principal - executar a suíte de testes.
+      # Executa os testes (sem alteração)
       - name: Run tests
         run: brownie test
