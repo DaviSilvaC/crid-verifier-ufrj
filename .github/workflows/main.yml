@@ -15,22 +15,18 @@ jobs:
         with:
           python-version: '3.11'
 
-      # --- PASSO NOVO: Instalar o Node.js ---
-      # O Ganache é um aplicativo Node.js, então precisamos do Node instalado.
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18' # Uma versão estável (LTS) do Node.js
+          node-version: '18'
 
-      # --- PASSO NOVO: Instalar o Ganache-CLI ---
-      # Usa o gerenciador de pacotes do Node (npm) para instalar o Ganache globalmente.
-      - name: Install Ganache
-        run: npm install -g ganache-cli
+      # --- ALTERAÇÃO 1: Instalar Hardhat em vez de Ganache ---
+      - name: Install Hardhat
+        run: npm install -g hardhat
 
-      # Instala o Brownie (sem alteração)
       - name: Install dependencies
         run: pip install eth-brownie
 
-      # Executa os testes (sem alteração)
+      # --- ALTERAÇÃO 2: Rodar os testes na rede Hardhat ---
       - name: Run tests
-        run: brownie test
+        run: brownie test --network hardhat
