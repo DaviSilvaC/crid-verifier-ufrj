@@ -26,7 +26,7 @@ Este projeto é um protótipo de um sistema descentralizado para a verificação
 
 ## 🚀 Sobre o Projeto
 
-O Documento de Confirmação de Inscrição em Disciplinas (CRID) é um registro acadêmico essencial na UFRJ[cite: 1]. No entanto, seu formato digital o torna vulnerável a adulterações. Este projeto resolve essa questão ao criar um "cartório digital" na blockchain.
+O Documento de Confirmação de Inscrição em Disciplinas (CRID) é um registro acadêmico essencial na UFRJ. No entanto, seu formato digital o torna vulnerável a adulterações. Este projeto resolve essa questão ao criar um "cartório digital" na blockchain.
 
 A solução permite que a administração da universidade registre uma "assinatura" digital (hash) de cada CRID emitido. Uma vez registrado, esse dado se torna imutável. Qualquer pessoa ou empresa pode, então, verificar de forma rápida e segura se um documento CRID é autêntico, comparando seu hash com o registro na blockchain, prevenindo fraudes de forma eficaz.
 
