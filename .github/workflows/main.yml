@@ -20,13 +20,16 @@ jobs:
         with:
           node-version: '18'
 
-      # --- ALTERAÇÃO 1: Instalar Hardhat em vez de Ganache ---
       - name: Install Hardhat
         run: npm install -g hardhat
+
+      # --- PASSO NOVO: Criar o arquivo de configuração do Hardhat ---
+      # Este passo cria o hardhat.config.js necessário para que o 'npx hardhat node' funcione.
+      - name: Create Hardhat Config
+        run: echo "/** @type import('hardhat/config').HardhatUserConfig */ module.exports = { solidity: '0.8.19' };" > hardhat.config.js
 
       - name: Install dependencies
         run: pip install eth-brownie
 
-      # --- ALTERAÇÃO 2: Rodar os testes na rede Hardhat ---
       - name: Run tests
         run: brownie test --network hardhat
