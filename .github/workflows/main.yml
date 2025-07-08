@@ -23,8 +23,7 @@ jobs:
       - name: Install Hardhat
         run: npm install -g hardhat
 
-      # --- PASSO NOVO: Criar o arquivo de configuração do Hardhat ---
-      # Este passo cria o hardhat.config.js necessário para que o 'npx hardhat node' funcione.
+      # --- CORREÇÃO DE SINTAXE AQUI ---
       - name: Create Hardhat Config
         run: echo "/** @type import('hardhat/config').HardhatUserConfig */ module.exports = { solidity: '0.8.19' };" > hardhat.config.js
 
