@@ -116,23 +116,6 @@ Após a instalação, você pode usar os seguintes comandos do Brownie:
 
 ---
 
-## 📁 Estrutura do Projeto
-
-├── .github/workflows/        # Contém o workflow do GitHub Actions para CI
-├── contracts/                # Arquivos de contrato em Solidity (.sol)
-│   └── CridVerifier.sol
-├── scripts/                  # Scripts de automação e deploy (.py)
-│   └── deploy.py
-├── tests/                    # Arquivos de teste em Python (.py)
-│   └── test_crid_verifier.py
-├── .gitignore
-├── brownie-config.yaml       # (Opcional) Arquivo de configuração do Brownie
-├── hardhat.config.js         # Arquivo de configuração do Hardhat
-├── package.json              # Dependências do Node.js
-└── README.md
-
----
-
 ## 🔄 Pipeline de CI/CD
 
 Este projeto utiliza um pipeline de Integração Contínua (CI) configurado em `.github/workflows/main.yml`. A cada `push` para o repositório, o GitHub Actions automaticamente:
